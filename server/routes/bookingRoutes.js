@@ -5,7 +5,6 @@ const Cab = require("../models/Cab");
 const calculateShortestTime = require("../utils/shortestPath");
 const sendCabBookingConfirmation = require("../utils/email");
 
-
 router.post("/addBooking", async (req, res) => {
 
   try {
@@ -18,7 +17,6 @@ router.post("/addBooking", async (req, res) => {
 
     const estimatedTime = await calculateShortestTime(source, destination);
     const bookingPrice = estimatedTime * cab?.price;
-    // console.log(estimatedTime, bookingPrice);
     const newBooking = new Booking({
       source,
       destination,
@@ -31,7 +29,6 @@ router.post("/addBooking", async (req, res) => {
     });
 
     const bookingStatus = await newBooking.save();
-    // console.log(bookingStatus);
 
     const updatedBooking = await Cab.findByIdAndUpdate(cabName._id, {
       $set: {
@@ -41,7 +38,6 @@ router.post("/addBooking", async (req, res) => {
 
       },
     });
-    // console.log("booking done and cab updated", updatedBooking);
     sendCabBookingConfirmation(newBooking);
     return res.status(200).json(newBooking);
 
@@ -51,10 +47,10 @@ router.post("/addBooking", async (req, res) => {
   }
 });
 
-// GET /bookings
 router.get("/", async (req, res) => {
   try {
     const bookings = await Booking.find();
+    console.log("backend here");
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({ error: "Could not retrieve bookings." });
@@ -94,22 +90,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// DELETE /bookings/:id
-// router.delete("/:id", async (req, res) => {
-//   try {
-//     const updatedBooking = await Booking.findByIdAndUpdate(
-//       req.params.id,
-//       {
-//         $set: { status: "archived" },
-//       },
-//       { new: true }
-//     );
 
-//     res.status(200).json(updatedBooking);
-//   } catch (error) {
-//     res.status(500).json({ error: "Could not delete the booking." });
-//   }
-// });
 
 router.put("/status/:id",async (req, res) => {
   try {

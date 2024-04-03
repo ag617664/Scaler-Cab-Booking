@@ -35,9 +35,7 @@ function BookingForm() {
   const fetchCabs = async () => {
     try {
       await axios
-        .get(`${process.env.REACT_APP_API_URL}/cabs/`, {
-          // params -- startTime send
-        })
+        .get(`${process.env.REACT_APP_API_URL}/cabs/`)
         .then((response) => {
           const filteredCabs = response.data;
           setAvailableCabs(filteredCabs);
@@ -122,7 +120,6 @@ function BookingForm() {
       setShowAvailableCabs(false);
       localStorage.setItem("cabBooked", true);
       toast.success("Booking created successfully!");
-      //  console.log(response);
       let bookingId = response.data._id;
       navigate(`/yourBooking/${bookingId}`);
     } catch (error) {

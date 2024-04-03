@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a0c14b1a.css",
+    "main.js": "/static/js/main.d1238c08.js",
+    "static/media/GivenGraph.png": "/static/media/GivenGraph.a7d415094322a7acda98.png",
+    "static/media/AdobeStock_527510181_Preview.jpeg": "/static/media/AdobeStock_527510181_Preview.368e2a7f657b9d8fb509.jpeg",
+    "index.html": "/index.html",
+    "main.a0c14b1a.css.map": "/static/css/main.a0c14b1a.css.map",
+    "main.d1238c08.js.map": "/static/js/main.d1238c08.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0c14b1a.css",
+    "static/js/main.d1238c08.js"
+  ]
+}
