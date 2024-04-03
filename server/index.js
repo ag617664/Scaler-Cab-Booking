@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-let port = process.env.PORT;
+let PORT = process.env.PORT;
 
 require('dotenv').config();
 
@@ -29,7 +29,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 const db = mongoose.connection;
 
-
 db.on('connected', () => {
   console.log('Connected to MongoDB');
 });
@@ -42,8 +41,8 @@ db.on('disconnected', () => {
   console.log('MongoDB connection disconnected');
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
