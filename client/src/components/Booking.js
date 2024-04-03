@@ -12,7 +12,7 @@ const Booking = ({ booking, onDeletePermanent }) => {
         try {
             let time = localStorage.getItem('timeBooked');
             if (time < Date.now()) {
-                await axios.put(`http://localhost:3001/bookings/status/${id}`).then((res) => {
+                await axios.put(`${process.env.REACT_APP_API_URL}/bookings/status/${id}`).then((res) => {
                     console.log(res);
                 }).catch((err) => {
                     console.log(err);

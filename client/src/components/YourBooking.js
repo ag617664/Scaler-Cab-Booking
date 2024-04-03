@@ -17,7 +17,7 @@ const YourBooking = () => {
 
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3001/bookings/${id}`);
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/bookings/${id}`);
 
           if(response){
             setBookingData(response);
@@ -33,11 +33,11 @@ const YourBooking = () => {
     const cabId = bookingData?.data.cab._id;
     const handleCancel = async () => {
         try {
-            const response = await axios.put(`http://localhost:3001/bookings/status/${id}`);
+            const response = await axios.put(`${process.env.REACT_APP_API_URL}/bookings/status/${id}`);
             console.log("Deleted Successfully",response);
             toast.success('Booking Cancelled Successfully'); 
             localStorage.setItem('timeBooked',0);
-            const responseCab = await axios.put(`http://localhost:3001/cabs/free/${cabId}`);
+            const responseCab = await axios.put(`${process.env.REACT_APP_API_URL}/cabs/free/${cabId}`);
             console.log("Cab freee Successfully",responseCab);
             navigate('/');
         } catch (error) {

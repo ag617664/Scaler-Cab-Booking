@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import BookingForm from './components/BookingForm';
 import AllBookings from './components/AllBookings';
 import EditBookingPage from './components/EditBookingPage'; 
-// import Home from './components/Home';
 import YourBooking from './components/YourBooking';
 import './App.css';
 

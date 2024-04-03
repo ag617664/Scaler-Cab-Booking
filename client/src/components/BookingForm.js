@@ -35,7 +35,7 @@ function BookingForm() {
   const fetchCabs = async () => {
     try {
       await axios
-        .get("http://localhost:3001/cabs/", {
+        .get(`${process.env.REACT_APP_API_URL}/cabs/`, {
           // params -- startTime send
         })
         .then((response) => {
@@ -66,7 +66,7 @@ function BookingForm() {
   };
   const calculateShortestTimeEndPoint = (source, destination) => {
     axios
-      .get("http://localhost:3001/path/calculateShortestTime", {
+      .get(`${process.env.REACT_APP_API_URL}/path/calculateShortestTime`, {
         params: {
           source,
           destination,
