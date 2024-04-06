@@ -53,7 +53,6 @@ To set up and run the Cab System web application, follow these steps:
 
 1. Clone the project from the repository:
    ```
-   git clone https://github.com/varisha-025/Scaler_Cab_System.git
    ```
 
 2. Navigate to the project directory:
